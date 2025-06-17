@@ -32,7 +32,10 @@ func _physics_process(delta: float) -> void:
 		elif direction != 0:
 			animated_spriter.play("run")
 	else:
-		animated_spriter.play("jump")
+		if direction == 0:
+			animated_spriter.play("jump_idle")
+		elif direction != 0:
+			animated_spriter.play("jump")
 	
 	if direction:
 		velocity.x = direction * SPEED / 1.5
